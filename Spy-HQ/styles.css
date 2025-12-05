@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 1700px;
+}
+
+/* The header stay at the top of the screen while scrolling */
+.header {
+    background-color: rgb(49, 49, 90);
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    position: sticky;
+    z-index: 1000;
+    /* stay above all content */
+    top: 0;
+}
+
+/* The sidebar fixed on the left of the screen */
+aside {
+    position: fixed;
+    width: 150px;
+    height: 100%;
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 20px 10px;
+}
+
+/*Displaying the list as columns*/
+.sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+
+.sidebar ul li {
+    background-color: #5e7fa0;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+/*Changing color and adding pointer when hovering over item*/
+.sidebar ul li:hover {
+    background-color: #bcc7e2;
+    cursor: pointer;
+}
+
+.dashboard {
+    margin-left: 150px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #f5f7fa;
+}
+
+section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.agent-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.agent-list ul li {
+    background-color: #cde8fe;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 20px;
+}
+
+/* Defining different color to every even */
+.agent-list ul li:nth-child(odd) {
+    background-color: #cfdeee;
+}
+
+/* Add an emoji before each agent name */
+.agent-list ul li::before {
+    content: "🕶️";
+    margin-right: 10px;
+}
+
+/* Make the agent's background color change and bold on */
+.agent-list ul li:hover {
+    background-color: #4e82dc;
+    font-weight: bold;
+}
+
+/* The Agent Zulu card float in the top-right corner of its section  */
+.agent-card {
+    position: absolute;
+    background: #c69b76;
+    border-radius: 8px;
+    top: 0;
+    right: 0;
+}
+
+/* The note inside the section be visually shifted */
+.note {
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.intel-section p {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Hide the secret mission message by default, */
+.hidden-message {
+    display: none;
+}
+
+/* show it only when a checkbox is :checked */
+label:has(input:checked)+.hidden-message {
+    display: block;
+}
