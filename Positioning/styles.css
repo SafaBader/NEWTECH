@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+
+}
+
+/* The header stay at the top of the screen while scrolling */
+.header {
+    background-color: rgb(49, 49, 90);
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    position: sticky;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+    top: 0;
+
+}
+
+/* The sidebar fixed on the left of the screen */
+.sidebar {
+    position: fixed;
+    width: 150px;
+    height: 100%;
+    background-color: #34495e;
+    color: #ecf0f1;
+    top: 80px;
+    padding: 10px 10px;
+    text-align: center;
+}
+
+/* adding icon before the sidebar */
+.sidebar::before {
+    content: "🧰";
+    display: block;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.dashboard {
+    margin-left: 150px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color: #f5f7fa;
+}
+
+section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 10px;
+    position: relative;
+}
+
+h2 {
+    font-weight: bold;
+    padding: 20px 10px;
+}
+
+p {
+    font-size: 18px;
+    padding: 20px 10px;
+}
+
+/* The Agent card float in the top-right corner of its section  */
+.agent-card {
+    position: absolute;
+    background: #c69b76;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-weight: bold;
+    top: 0;
+    right: 0;
+}
+
+/* map pin is positioned relative to the section */
+/* using the z-index to decide who is on top */
+.map-pin {
+    position: absolute;
+    font-size: 20px;
+    background-color: rgb(231, 178, 233);
+    border-radius: 50%;
+    padding: 10px 5px;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.secret-file {
+    position: relative;
+    background-color: rgb(163, 206, 220);
+    max-width: 200px;
+    padding: 10px 15px;
+    margin-bottom: 30px;
+    left: 40px;
+    z-index: 2;
+    border-radius: 5px;
+
+}
+
+.note {
+    position: relative;
+    background-color: rgb(240, 234, 170);
+    margin-bottom: 20px;
+    max-width: 350px;
+    padding: 10px 15px;
+    left: 10px;
+    z-index: 1;
+    border-radius: 5px;
+    border-left: 6px solid rgb(255, 165, 0);
+}
+
+/*Filler to create scroll behavior*/
+.filler {
+    height: 1700px;
+    position: static;
+}
