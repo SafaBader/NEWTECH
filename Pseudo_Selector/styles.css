@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+h1 {
+    padding-left: 30px;
+}
+
+/* Display the list as column*/
+.agent-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 25px;
+    margin: 30px auto;
+}
+
+.agent-list li {
+    list-style: none;
+}
+
+/* Defining color to every odd - numbered agent in the list */
+.agent-list li:nth-child(odd) {
+    background-color: #f0f4ee;
+}
+
+/* Defining different color to every even - numbered agent in the list */
+.agent-list li:nth-child(even) {
+    background-color: #d0e1e2;
+}
+
+/* The first and last agent appearing bold */
+.agent-list li:first-child {
+    font-weight: bold;
+}
+
+.agent-list li:last-child {
+    font-weight: bold;
+}
+
+/* .agent-list li:nth-child(2){
+    background-color: green;
+} */
+
+/* When hovering over an agent’s name, it become underlined and change background color */
+.agent-list li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: rgb(104, 155, 218);
+}
+
+/* Adding fun spy emoji (🕶) before each agent’s name */
+li::before {
+    content: "🕶 ";
+    margin-right: 10px;
+}
+
+/* Display the form as column*/
+.agent-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 25px;
+    padding-left: 30px;
+}
+
+.agent-form label {
+    display: flex;
+    flex-direction: column;
+}
+
+/* The codename input field glow when focused */
+.agent-form input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px #3a8bff;
+    border: 1px solid #3a8bff;
+
+}
+
+/* The “Enter the Field” button hidden by default */
+.secret-button {
+    visibility: hidden;
+}
+
+/* The “Enter the Field” only appear if the checkbox is checked*/
+label:has(input:checked)+.secret-button {
+    visibility: visible;
+}
