@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 40px;
+  background-color: rgb(239, 246, 246);
+  height: 1500px;
+}
+
+/* A menu 📋 that you always see on screen : get fixed position */
+.menu {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: #ffd966;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* A satellite 🛰 that rests calmly in flow: get static postion */
+.satellite {
+  position: static;
+  margin-top: 80px;
+  background-color: rgb(162, 160, 162);
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  max-width: 100px;
+}
+
+/* A planet 🪐 that’s slightly off course: get relative position */
+.planet {
+  position: relative;
+  background: #8ec5cd;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  top: 50px;
+  left: 20px;
+  max-width: 100px;
+}
+
+/* A spaceship 🚀 that floats at the edge of the universe: get absoulte position */
+.spaceship {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  background: #ffcfff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  max-width: 150px;
+}
+
+/* A sticky note 📌 that holds position after scrolling past a point:get sticky postion */
+.note {
+  position: sticky;
+  top: 0;
+  margin-top: 100px;
+  background: #ffcfff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  max-width: 150px;
+}
