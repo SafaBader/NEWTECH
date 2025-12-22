@@ -22,3 +22,18 @@ function sumLowest2Num(array) {
     return array[0] + array[1];
 }
 console.log(sumLowest2Num([500, 20, 3, 60]));
+
+//Q3
+// Ex2.2 - One and Zero - Binary
+// Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+// Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+// Examples:
+// Testing: [0, 0, 0, 1] ==> 1
+// Testing: [0, 0, 1, 0] ==> 2
+// However, the arrays can have varying lengths, not just limited to 4.
+
+function binary2decimal(array) {
+    let str = array.join("");
+    return parseInt(str, 2);
+}
+console.log(binary2decimal([0, 0, 1, 0, 1, 0]));
