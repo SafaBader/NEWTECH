@@ -307,4 +307,19 @@ console.log(maskify(""));
 console.log(maskify("1"));
 console.log(maskify("4556364607935616"));
 
+//Q16
+// Ex5.7 - shortest words
+// Simple, given a string of words, return the length of the shortest word(s).
+// String will never be empty and you do not need to account for different data types.
 
+function shortestWord(str) {
+    const words = str.split(" ");
+    let min = words[0].length;
+    for (let word in words) {
+        if (words[word].length < min) {
+            min = words[word].length;
+        }
+    }
+    return min;
+}
+console.log(shortestWord("safa ba baderrr"));
