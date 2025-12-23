@@ -259,3 +259,21 @@ function toCamelCase(str) {
 }
 console.log(toCamelCase("the-stealth-warrior-"));
 console.log(toCamelCase("The_stealth_warrior"));
+
+//Q14
+// Ex5.5 - Abbreviate two words
+// Write a function to convert a name into initials. This kata strictly takes two words with one space
+// in between them.
+// The output should be two capital letters with a dot separating them.
+// It should look like this:
+// Sam Harris => S.H
+
+function abbreviate2Words(str) {
+    let array = str.split(" ");
+    let newArr = [];
+    for (let word in array) {
+        newArr.push(array[word][0].toUpperCase());
+    }
+    return newArr.join(".");
+}
+console.log(abbreviate2Words("safa bader bader"));
