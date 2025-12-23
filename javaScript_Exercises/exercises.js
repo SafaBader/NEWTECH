@@ -185,11 +185,28 @@ console.log(removeFirstLast("safa"));
 // repeatStr(6, "I") // "IIIIII"
 // repeatStr(5, "Hello") // "HelloHelloHelloHelloHello"
 
-function stringReat(repeatNum, string) {
+function stringRepeat(repeatNum, string) {
     let repeatStr = string;
     for (let i = 1; i < repeatNum; i++) {
         string += repeatStr;
     }
     return string;
 }
-console.log(stringReat(2, "safa"));
+console.log(stringRepeat(2, "safa"));
+
+//Q11
+// Ex2.4 - Unique
+// There is an array with some numbers. All numbers are equal except for one. Try to find it!
+// findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+// findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+// It’s guaranteed that array contains at least 3 numbers.
+
+function findUniq(array) {
+    for (let i = 0; i < array.length; i++) {
+        const unique = array[i];
+        if (array.indexOf(unique) === array.lastIndexOf(unique)) {
+            return unique;
+        }
+    }
+}
+console.log(findUniq([2, 1, 1, 1, 1]));
