@@ -323,3 +323,21 @@ function shortestWord(str) {
     return min;
 }
 console.log(shortestWord("safa ba baderrr"));
+
+//Q17
+// Ex5.8 - shortest words version 2
+// Given a string of words, return the longest word[s].
+// String will never be empty and you do not need to account for different data types.
+
+function longestWord(str) {
+    const words = str.split(" ");
+    let max = words[0].length;
+    for (let word in words) {
+        if (words[word].length > max) {
+            max = words[word].length;
+        }
+    }
+    return max;
+}
+
+console.log(longestWord("safasafasafa ba baderrr"));
