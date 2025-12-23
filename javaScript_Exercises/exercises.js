@@ -423,3 +423,16 @@ console.log(isogram("aba"));
 console.log(isogram("moOse"));
 
 
+//Q21
+// Ex 8 - Find the Perimeter of a Rectangle
+// Create a function that takes length and width and finds the perimeter of a rectangle.
+// Examples
+// indPerimeter(6, 7)
+// findPerimeter(20, 10) —60
+
+function perimeter(length, width) {
+    return length * 2 + width * 2;
+}
+console.log(perimeter(6, 7));
+console.log(perimeter(20, 10));
+console.log(perimeter(2, 9));
