@@ -403,6 +403,23 @@ console.log(cntDublicate("Indivisibilities"));
 console.log(cntDublicate("aA11"));
 console.log(cntDublicate("ABBA"));
 
+//Q20
+// Ex6.4 - isogram
+// An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement
+// a function that determines whether a string that contains only letters is an isogram. Assume the
+// empty string is an isogram. Ignore letter case.
+// islsogram("Dermatoglyphics") ==true
+// islsogram("aba") ==false
+// islsogram("moOse") ==false // -- ignore letter case
 
+function isogram(str) {
+    if (cntDublicate(str) == 0) {
+        return true;
+    }
+    return false;
+}
+console.log(isogram("Dermatoglyphics"));
+console.log(isogram("aba"));
+console.log(isogram("moOse"));
 
 
