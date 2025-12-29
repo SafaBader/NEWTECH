@@ -70,65 +70,79 @@ class Wizards {
     castSpell(opponent) {
         console.log(`${this.name} casts generic spell without any effect`);
     }
+    canCast() {
+        return this.#mana >= this.getManaCost();
+    }
+
+    getManaCost() {
+        return Infinity;
+    }
 
 }
 
 class FireWizard extends Wizards {
-
+    getManaCost() {
+        return 6;
+    }
     //Override castSpell method 
     castSpell(opponent) {
 
         // Cannot act if defeated
         if (!this.isAlive()) {
-            console.log(`${this.name} is defeated ,cannot act `);
+            console.log(` 🔥 ${this.name} is defeated ,cannot act `);
             return;
         }
-
-        const manaCost = 6;
+        const manaCost = this.getManaCost();
         const damage = 8;
 
         // Check mana quantity
         if (!this.spendMana(manaCost)) {
-            console.log(`${this.name} tried to cast, but there is no enough mana!`);
+            console.log(`🔥 ${this.name} tried to cast, but there is not enough mana!`);
             return;
         }
 
         // Apply damage to opponent
         opponent.receiveDamage(damage);
-        console.log(`${this.name} casts ${opponent.name} for ${damage} damage!`);
+        console.log(`🔥 ${this.name} casts ${opponent.name} for ${damage} damage!`);
     }
 }
 class IceWizard extends Wizards {
 
+    getManaCost() {
+        return 5;
+    }
     //Override castSpell method 
     castSpell(opponent) {
 
         // Cannot act if defeated
         if (!this.isAlive()) {
-            console.log(`${this.name} is defeated ,cannot act `);
+            console.log(` ❄️${this.name} is defeated ,cannot act `);
             return;
         }
 
-        const manaCost = 5;
-        const damage = 4;
+        const manaCost = this.getManaCost();
+        const damage = 5;
 
         // Check mana quantity
         if (!this.spendMana(manaCost)) {
-            console.log(`${this.name} tried to cast, but there is no enough mana!`);
+            console.log(`❄️${this.name} tried to cast, but there is no enough mana!`);
             return;
         }
-
+        let total = damage;
         // Apply damage to opponent
         opponent.receiveDamage(damage);
 
         // Unique ice effect: extra damage if opponent has low mana
         const status = opponent.getStatus();
-        if (status.mana < 5) {
-            opponent.receiveDamage(5);
-            console.log("The ice senses weakness and strikes deeper  :(");
+        if (status.mana < 4) {
+            const extraDamage = 4;
+            opponent.receiveDamage(extraDamage);
+            total += extraDamage;
+            console.log(
+                `❄️ The ice senses weakness and strikes deeper for ${extraDamage} extra damage!`);
         }
 
-        console.log(`${this.name} casts ${opponent.name} for ${damage} damage!`);
+        console.log(`❄️ ${this.name} casts ${opponent.name} for ${damage} damage!`);
     }
 
 }
@@ -150,7 +164,7 @@ class Duel {
         const wizard_A = this.wizardA.getStatus();
         const wizard_B = this.wizardB.getStatus();
 
-        console.log(`Status: ${wizard_A.name} (Health ${wizard_A.health}, Mana ${wizard_A.mana}) | ${wizard_B.name} (Health ${wizard_B.health}, Mana ${wizard_B.mana})`);
+        console.log(`Status: 🔥 ${wizard_A.name} (Health ${wizard_A.health}, Mana ${wizard_A.mana}) | ❄️ ${wizard_B.name} (Health ${wizard_B.health}, Mana ${wizard_B.mana})`);
     }
 
     // Runs the duel until a winner or a draw is reached
@@ -161,14 +175,13 @@ class Duel {
         while (this.wizardA.isAlive() && this.wizardB.isAlive()) {
             console.log("Round " + this.roundNumber);
 
-            const a = this.wizardA.getStatus();
-            const b = this.wizardB.getStatus();
 
             // Check for draw: both wizards are out of mana
-            if (a.mana === 0 && b.mana === 0) {
-                console.log("Both wizards are out of mana. The duel ends in a draw!");
+            if (!this.wizardA.canCast() && !this.wizardB.canCast()) {
+                console.log("Neither wizard can cast anymore. The duel ends in a draw!");
                 return;
             }
+
             // Wizard A attacks Wizard B
             this.wizardA.castSpell(this.wizardB);
             if (!this.wizardB.isAlive()) {
@@ -194,9 +207,10 @@ function main() {
 
     // const wizard1 = new FireWizard("Flame", 70, 36);
     // const wizard2 = new IceWizard("Ice", 30, 25);
-    const wizard1 = new FireWizard("Flame", 40, 36);
-    const wizard2 = new IceWizard("Ice", 30, 25);
-
+    // const wizard1 = new FireWizard("Flame", 40, 10);
+    // const wizard2 = new IceWizard("Ice", 30, 20);
+    const wizard1 = new FireWizard("Flame", 40, 19);
+    const wizard2 = new IceWizard("Ice", 30, 16);
     const duel = new Duel(wizard1, wizard2);
     duel.run();
 }
